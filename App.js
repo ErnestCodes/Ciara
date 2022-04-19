@@ -1,11 +1,13 @@
 import React from "react";
 import { View } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
+import StackNavigator from "./StackNavigator";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   return (
-    // <View>
-    <HomeScreen />
-    // </View>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 }

@@ -1,30 +1,34 @@
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
+import {
+  MaterialCommunityIcons,
+  AntDesign,
+  Ionicons,
+} from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import { colors } from "../colors";
 import { notes } from "../dummy";
 import Notes from "../components/Notes";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ backgroundColor: colors.themeColor }}>
+      <View style={{ backgroundColor: "#191970" }}>
         <View
           style={{
+            alignItems: "flex-end",
             padding: 16,
-            flexDirection: "row",
-            justifyContent: "space-between",
           }}
         >
-          <MaterialCommunityIcons
-            name="bell-outline"
-            size={30}
-            style={{ color: colors.white }}
-          />
-          <View style={{ flexDirection: "row" }}>
-            <AntDesign name="user" size={30} style={{ color: colors.white }} />
-          </View>
+          <AntDesign name="user" size={30} style={{ color: colors.white }} />
         </View>
 
         {/* Name Area */}
@@ -37,8 +41,8 @@ const HomeScreen = () => {
               paddingHorizontal: 16,
               paddingVertical: 6,
               flexDirection: "row",
-              justifyContent: "space-between",
-              backgroundColor: colors.tint,
+              // justifyContent: "space-between",
+              backgroundColor: "#2A2ABB",
               borderRadius: 20,
               marginVertical: 20,
               alignItems: "center",
@@ -49,18 +53,18 @@ const HomeScreen = () => {
               size={30}
               style={{ color: colors.white }}
             />
-            <View style={{ flexDirection: "row" }}>
+            <View style={{ marginHorizontal: 5 }}>
+              <Text style={{ color: colors.background, fontSize: 14 }}>
+                Search...
+              </Text>
+            </View>
+            {/* <View style={{ flexDirection: "row" }}>
               <MaterialCommunityIcons
                 name="microphone"
                 size={30}
                 style={{ color: colors.white }}
               />
-              <MaterialCommunityIcons
-                name="tune"
-                size={30}
-                style={{ color: colors.white }}
-              />
-            </View>
+            </View> */}
           </View>
         </View>
       </View>
@@ -78,17 +82,23 @@ const HomeScreen = () => {
         }}
       >
         <Text style={{ fontSize: 24 }}>Notes</Text>
-        <MaterialCommunityIcons
-          name="plus"
-          size={40}
-          style={{
-            color: colors.themeColor,
-            marginHorizontal: 8,
-          }}
-        />
+        <TouchableOpacity
+          style={styles.add}
+          onPress={() => navigation.navigate("Create")}
+        >
+          <Ionicons
+            name="ios-add"
+            size={34}
+            style={{
+              color: "#fff",
+              alignSelf: "center",
+              marginHorizontal: 4,
+            }}
+          />
+        </TouchableOpacity>
       </View>
 
-      <View style={{ height: "60%" }}>
+      <View style={{ height: "80%" }}>
         <ScrollView
           style={{
             backgroundColor: colors.background,
@@ -116,6 +126,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === "android" ? 16 : null,
-    backgroundColor: colors.themeColor,
+    backgroundColor: "#191970",
+  },
+  add: {
+    backgroundColor: "#2A2ABB",
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    width: 40,
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 30,
+    marginHorizontal: 15,
+    marginVertical: 12,
   },
 });
