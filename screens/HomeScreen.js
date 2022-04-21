@@ -4,6 +4,7 @@ import {
   View,
   SafeAreaView,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import {
   MaterialCommunityIcons,
@@ -53,18 +54,14 @@ const HomeScreen = () => {
               size={30}
               style={{ color: colors.white }}
             />
-            <View style={{ marginHorizontal: 5 }}>
+            <Pressable
+              style={{ marginHorizontal: 5 }}
+              onPress={() => navigation.navigate("Search")}
+            >
               <Text style={{ color: colors.background, fontSize: 14 }}>
                 Search...
               </Text>
-            </View>
-            {/* <View style={{ flexDirection: "row" }}>
-              <MaterialCommunityIcons
-                name="microphone"
-                size={30}
-                style={{ color: colors.white }}
-              />
-            </View> */}
+            </Pressable>
           </View>
         </View>
       </View>
