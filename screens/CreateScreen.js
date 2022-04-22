@@ -30,10 +30,10 @@ const CreateScreen = () => {
         <AppPicker />
         <Pressable
           style={tailwind(
-            "pt-12 items-center bg-blue-200 px-5 py-1 rounded-full text-blue-800 font-semibold"
+            "pt-12 items-center bg-blue-200 px-5 py-1 rounded-full  font-semibold"
           )}
         >
-          <Text style={tailwind("text-sm")}>Add</Text>
+          <Text style={[tailwind("text-sm"), { color: "#2A2ABB" }]}>Add</Text>
         </Pressable>
       </View>
 

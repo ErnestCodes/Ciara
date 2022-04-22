@@ -31,11 +31,11 @@ const Notes = ({ noteTitle, icon, theme, timeStamp }) => {
       </View>
 
       <View style={{ flexDirection: "row" }}>
-        <MaterialCommunityIcons
+        {/* <MaterialCommunityIcons
           name="pencil"
           size={30}
           style={{ color: theme }}
-        />
+        /> */}
         <MaterialCommunityIcons
           name="trash-can"
           size={30}
